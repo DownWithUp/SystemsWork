@@ -1,5 +1,5 @@
 # SystemsWork
-A repo containing examples which deal with various low-level aspects of a system.
+A repo containing examples relating to various aspects of Windows internals and processor features.
 
 ## Repo Structure
 <hr>
@@ -24,5 +24,5 @@ Using the Windows Hypervisor Platform, this exmaple shows how you can inject a C
 <hr>
 
 ### FASMDriver
-A simple example of a WDM hello world driver using [FASM] and many of its useful macros.
+A simple example of a WDM hello world driver using [FASM](https://flatassembler.net) and many of its useful macros.
 <hr>
