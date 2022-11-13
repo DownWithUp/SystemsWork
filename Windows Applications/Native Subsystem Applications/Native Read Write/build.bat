@@ -1,0 +1,1 @@
+cl /GS- /Oi /I"C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\km" ConsoleRW.c /link /ENTRY:NtProcessStartup /SUBSYSTEM:Native
