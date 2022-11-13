@@ -33,6 +33,6 @@ A simple example of a WDM hello world driver using [FASM](https://flatassembler.
 <hr>
 
 ### Native Read-Write
-A simple example of a native subsystem app which uses NtDisplayString and NtReadFile to write output to the console, and collect input from the keyboard device during the system boot process. Native applications can be launched during the boot process by smss.exe. This example suspends the smss process in order to wait for the user to process the 'C' key to continue the startup process.
+A simple example of a native subsystem app which uses NtDisplayString and NtReadFile to write output to the console, and collect input from the keyboard device during the system boot process. Native applications can be launched during the boot process by smss.exe. This can be seen with autochk.exe in the `BootExecute` key at `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager`. To test this example, simply add the built executable to this list. Note that this example suspends the smss process in order to wait for the user to process the 'C' key to continue the startup process. 
 <hr>
 
