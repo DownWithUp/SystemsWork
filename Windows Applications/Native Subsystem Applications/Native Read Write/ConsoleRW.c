@@ -5,8 +5,8 @@
 #pragma comment(lib, "ntdll.lib")
 
 #define PROCESS_QUERY_LIMITED_INFORMATION	0x1000
-#define PROCESS_SUSPEND_RESUME				0x800
-#define FILE_SHARE_ALL						0x00000007
+#define PROCESS_SUSPEND_RESUME			0x800
+#define FILE_SHARE_ALL				0x00000007
 
 
 extern NTSTATUS NtDisplayString(PUNICODE_STRING String);
@@ -23,8 +23,8 @@ NTSTATUS OpenKeyboard(PHANDLE Handle)
 	OBJECT_ATTRIBUTES	objAttr;
 	IO_STATUS_BLOCK		ioBlock;
 	UNICODE_STRING		usDriver;
-	NTSTATUS			ntRet;
-	HANDLE				hDriver;
+	NTSTATUS		ntRet;
+	HANDLE			hDriver;
 
 	RtlInitUnicodeString(&usDriver, L"\\Device\\KeyboardClass0");
 	InitializeObjectAttributes(&objAttr, &usDriver, OBJ_CASE_INSENSITIVE, NULL, NULL);
@@ -37,7 +37,7 @@ NTSTATUS WaitForInput(HANDLE hDriver, HANDLE hEvent, PVOID Buffer, PULONG Buffer
 {
 	IO_STATUS_BLOCK ioBlock;
 	LARGE_INTEGER	ByteOffset;
-	NTSTATUS		Status;
+	NTSTATUS	Status;
 
 	RtlZeroMemory(&ioBlock, sizeof(ioBlock));
 	RtlZeroMemory(&ByteOffset, sizeof(ByteOffset));
@@ -68,16 +68,16 @@ typedef struct _KEYBOARD_INPUT_DATA
 NTSTATUS NtProcessStartup()
 {
 	PROCESS_BASIC_INFORMATION	BasicProcessInformation;
-	KEYBOARD_INPUT_DATA			keyboardData;
-	OBJECT_ATTRIBUTES			objAttr;
-	OBJECT_ATTRIBUTES			objProcessAttr;
-	UNICODE_STRING				usString;
-	CLIENT_ID					client;
-	NTSTATUS					ntRet;		
-	HANDLE						hProcess;
-	HANDLE						hEvent;
-	HANDLE						hKeyboard;
-	ULONG						ulSize;
+	KEYBOARD_INPUT_DATA		keyboardData;
+	OBJECT_ATTRIBUTES		objAttr;
+	OBJECT_ATTRIBUTES		objProcessAttr;
+	UNICODE_STRING			usString;
+	CLIENT_ID			client;
+	NTSTATUS			ntRet;		
+	HANDLE				hProcess;
+	HANDLE				hEvent;
+	HANDLE				hKeyboard;
+	ULONG				ulSize;
 
 	RtlInitUnicodeString(&usString, L"Press 'C' to continue...\n");
 	NtDisplayString(&usString);
